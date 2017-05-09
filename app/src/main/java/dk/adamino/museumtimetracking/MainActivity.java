@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDocumentHoursButton.setOnClickListener((View v) -> {
 
-            Toast.makeText(this, "Timer registreret!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Timer dokumenteret!", Toast.LENGTH_LONG).show();
         });
 
 
