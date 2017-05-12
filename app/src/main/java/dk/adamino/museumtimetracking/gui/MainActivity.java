@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private NumberPicker mNumberPicker;
     private Button mDocumentHoursButton;
 
+    private ArrayAdapter<Guild> mGuildAdapter;
+
     private GuildModel mGuildModel;
 
     @Override
@@ -33,6 +35,22 @@ public class MainActivity extends AppCompatActivity {
 
         mGuildModel = new GuildModel();
 
+        instantiateViews();
+
+
+        setAdapterForGuildSpinner();
+
+        setNumberPickerValues();
+
+        handleDocumentHours();
+
+
+    }
+
+    /**
+     * Assign all fields to views
+     */
+    private void instantiateViews() {
         mVolunteerName = (TextView) findViewById(R.id.volunteerName);
 
         mGuildSpinner = (Spinner) findViewById(R.id.guildSpinner);
@@ -40,16 +58,12 @@ public class MainActivity extends AppCompatActivity {
         mNumberPicker = (NumberPicker) findViewById(R.id.hourPicker);
 
         mDocumentHoursButton = (Button) findViewById(R.id.documentHoursButton);
+    }
 
-
-        ArrayAdapter<Guild> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item, mGuildModel.getActiveGuildsFromDB());
-
-
-        mGuildSpinner.setAdapter(adapter);
-
-        setNumberPickerValues();
-
+    /**
+     * Set the onClickListener for mDocumentHoursButton
+     */
+    private void handleDocumentHours() {
         mDocumentHoursButton.setOnClickListener((View v) -> {
 
             int id = 134; //Adam Hansen
@@ -65,14 +79,21 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "SHEIT!", Toast.LENGTH_LONG).show();
             }
-
-//            Toast.makeText(this, "Timer dokumenteret!", Toast.LENGTH_LONG).show();
-
-
         });
-
-
     }
+
+    /**
+     * Create and set adapter for the spinner
+     */
+    private void setAdapterForGuildSpinner() {
+        mGuildAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_item, mGuildModel.getActiveGuildsFromDB());
+
+
+        mGuildSpinner.setAdapter(mGuildAdapter);
+    }
+
+
 
     /**
      * Set the min, max and default value on the NumberPicker
