@@ -8,9 +8,13 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Date;
 
 import dk.adamino.museumtimetracking.R;
 import dk.adamino.museumtimetracking.be.Guild;
+import dk.adamino.museumtimetracking.be.VolunteerWork;
 import dk.adamino.museumtimetracking.gui.model.GuildModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,6 +51,20 @@ public class MainActivity extends AppCompatActivity {
         setNumberPickerValues();
 
         mDocumentHoursButton.setOnClickListener((View v) -> {
+
+            int id = 134; //Adam Hansen
+            String guild = mGuildSpinner.getSelectedItem().toString();
+            Date date = new Date();
+            int hours = mNumberPicker.getValue();
+            VolunteerWork newWork = new VolunteerWork(id, guild, date, hours);
+
+            boolean documented = mGuildModel.documentVolunteerHours(newWork);
+
+            if (documented) {
+                Toast.makeText(this, "Dokumenteret!", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "SHEIT!", Toast.LENGTH_LONG).show();
+            }
 
 //            Toast.makeText(this, "Timer dokumenteret!", Toast.LENGTH_LONG).show();
 

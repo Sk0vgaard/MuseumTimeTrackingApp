@@ -3,6 +3,7 @@ package dk.adamino.museumtimetracking.bll;
 import java.util.List;
 
 import dk.adamino.museumtimetracking.be.Guild;
+import dk.adamino.museumtimetracking.be.VolunteerWork;
 import dk.adamino.museumtimetracking.dal.GuildDAO;
 
 /**
@@ -23,5 +24,14 @@ public class GuildManager {
      */
     public List<Guild> getAllActiveGuilds() {
         return mGuildDAO.getAllActiveGuilds();
+    }
+
+    /**
+     * Document hours for volunteer
+     * @param volunteerWork
+     * @return
+     */
+    public boolean documentHours(VolunteerWork volunteerWork) {
+        return mGuildDAO.documentHours(volunteerWork);
     }
 }

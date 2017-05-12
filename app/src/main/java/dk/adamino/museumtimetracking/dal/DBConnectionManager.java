@@ -36,7 +36,6 @@ public class DBConnectionManager {
                         + password + ";";
                 conn = DriverManager.getConnection(ConnURL);
 
-                Log.e("Success", "Forbindelse oprettet!");
             } catch (SQLException se) {
                 Log.e("ERRO", se.getMessage());
             } catch (ClassNotFoundException e) {
