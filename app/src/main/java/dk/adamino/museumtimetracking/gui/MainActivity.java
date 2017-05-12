@@ -1,4 +1,4 @@
-package dk.adamino.museumtimetracking;
+package dk.adamino.museumtimetracking.gui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,10 +8,10 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import dk.adamino.museumtimetracking.R;
+import dk.adamino.museumtimetracking.be.Guild;
+import dk.adamino.museumtimetracking.gui.model.GuildModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,10 +20,14 @@ public class MainActivity extends AppCompatActivity {
     private NumberPicker mNumberPicker;
     private Button mDocumentHoursButton;
 
+    private GuildModel mGuildModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mGuildModel = new GuildModel();
 
         mVolunteerName = (TextView) findViewById(R.id.volunteerName);
 
@@ -33,15 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
         mDocumentHoursButton = (Button) findViewById(R.id.documentHoursButton);
 
-        List<String> guilds = new ArrayList<>();
-        guilds.add("Adamino Laug");
-        guilds.add("Rasmus Laug");
-        guilds.add("Grøn Laug");
-        guilds.add("Skovgaard Laug");
 
+        ArrayAdapter<Guild> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_item, mGuildModel.getActiveGuildsFromDB());
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item, guilds);
 
         mGuildSpinner.setAdapter(adapter);
 
@@ -49,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         mDocumentHoursButton.setOnClickListener((View v) -> {
 
-            Toast.makeText(this, "Timer dokumenteret!", Toast.LENGTH_LONG).show();
-        });
+//            Toast.makeText(this, "Timer dokumenteret!", Toast.LENGTH_LONG).show();
 
+
+        });
 
 
     }
@@ -66,4 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
         mNumberPicker.setValue(8);
     }
+
+
 }
