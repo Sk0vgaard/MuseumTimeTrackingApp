@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setAdapterForGuildSpinner() {
         mGuildAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item, mGuildModel.getActiveGuildsFromDB());
+                this, R.layout.spinner_row, mGuildModel.getActiveGuildsFromDB());
 
 
         mGuildSpinner.setAdapter(mGuildAdapter);

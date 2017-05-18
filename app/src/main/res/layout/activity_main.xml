@@ -15,13 +15,15 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
         android:clickable="false"
+        android:elevation="16dp"
         android:gravity="center"
         android:text="Dokumentér Timer"
         android:textColor="@android:color/black"
         android:textSize="28dp"
         android:textStyle="bold|italic"
-        android:layout_marginTop="20dp"/>
+        android:translationZ="16dp"/>
 
     <TextView
         android:id="@+id/nameVolunteer"
@@ -33,7 +35,9 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:text="Navn på frivillig:"
-        android:textSize="20sp"/>
+        android:textColor="@color/MusuemThemeTextColor"
+        android:textSize="20sp"
+        android:textStyle="italic"/>
 
     <EditText
         android:id="@+id/volunteerName"
@@ -62,7 +66,9 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:text="Vælg et laug:"
-        android:textSize="20sp"/>
+        android:textColor="@color/MusuemThemeTextColor"
+        android:textSize="20sp"
+        android:textStyle="italic"/>
 
         <Spinner
             android:id="@+id/guildSpinner"
@@ -84,32 +90,36 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="45dp"
         android:text="Vælg antal timer:"
-        android:textSize="20sp"/>
+        android:textColor="@color/MusuemThemeTextColor"
+        android:textSize="20sp"
+        android:textStyle="italic"/>
 
-        <NumberPicker
-            android:id="@+id/hourPicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/chooseHours"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"/>
+    <NumberPicker
+        android:id="@+id/hourPicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/chooseHours"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:fadeScrollbars="false"/>
 
-        <Button
-            android:id="@+id/documentHoursButton"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_dark"
-            android:elevation="15dp"
-            android:onClick="handleDocumentHours"
-            android:text="Dokumentér"
-            android:textColorLink="@color/colorPrimary"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/documentHoursButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/MuseumThemeOrange"
+        android:elevation="16dp"
+        android:onClick="handleDocumentHours"
+        android:text="Dokumentér"
+        android:textColor="@android:color/white"
+        android:textColorLink="@color/colorPrimary"/>
 
 </RelativeLayout>
