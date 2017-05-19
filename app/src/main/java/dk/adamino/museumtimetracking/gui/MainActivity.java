@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private void handleDocumentHours() {
         mDocumentHoursButton.setOnClickListener((View v) -> {
 
-            int id = 134; //Adam Hansen
+            int id = 166; //Adam Hansen
             String guild = mGuildSpinner.getSelectedItem().toString();
             Date date = new Date();
             int hours = mNumberPicker.getValue();
