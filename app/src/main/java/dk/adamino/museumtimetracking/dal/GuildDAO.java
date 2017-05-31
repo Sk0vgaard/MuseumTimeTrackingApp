@@ -3,7 +3,6 @@ package dk.adamino.museumtimetracking.dal;
 import android.util.Log;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -72,7 +71,8 @@ public class GuildDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, volunteerWork.getVolunteerID());
             ps.setString(2, volunteerWork.getGuild());
-            ps.setDate(3, new Date(volunteerWork.getDate().getTime()));
+            //Using TimeStamp to get Date AND time!
+            ps.setTimestamp(3, new java.sql.Timestamp(volunteerWork.getDate().getTime()));
             ps.setInt(4, volunteerWork.getHours());
 
             ps.executeUpdate();

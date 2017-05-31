@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import dk.adamino.museumtimetracking.R;
@@ -68,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
             int id = 166; //Adam Hansen
             String guild = mGuildSpinner.getSelectedItem().toString();
-            Date date = new Date();
+            Calendar calendar = Calendar.getInstance();
+            Date date = calendar.getTime();
+
             int hours = mNumberPicker.getValue();
             VolunteerWork newWork = new VolunteerWork(id, guild, date, hours);
 
